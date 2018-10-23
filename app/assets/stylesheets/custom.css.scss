@@ -27,13 +27,6 @@
   letter-spacing: -1px;
   font-weight: bold;
 }
-.btn-xlarge {
-  // background-color: #212529;
-  // border: #212529;
-}
-.btn-xlarge:hover {
-  // background-color: lighten( #212529, 10% );
-}
 
 .footer {
   padding: 2.5rem 0;
@@ -41,6 +34,7 @@
   text-align: center;
   
 }
+
 body > .container {
   min-height: 70%;
   min-height: calc(100vh - 13.875rem) ;
