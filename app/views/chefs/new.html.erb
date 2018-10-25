@@ -1,30 +1,3 @@
 <%= render 'shared/page_title', title: "Sign up for the application" %>
 
-<%= render 'shared/error', obj: @chef %>
-
-<%= form_for(@chef, :html => {class: 'form', role: 'form'}) do |f| %>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="form-group">
-        <%= f.label :chefname, "Name" %>
-        <%= f.text_field :chefname, placeholder: 'Enter your name', class: 'form-control' %>
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, placeholder: 'Enter your email', class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password %>
-        <%= f.password_field :password, placeholder: 'Choose a password', class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password_confirmation, "Confirm Password" %>
-        <%= f.password_field :password_confrimation, placeholder: 'Confirm password', class: 'form-control' %>
-      </div>
-      <div class="form-group">
-        <%= f.submit "Create my account", class: 'btn btn-dark' %>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'form' %>
