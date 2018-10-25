@@ -1,4 +1,5 @@
 class ChefsController < ApplicationController
+  
   def new
     @chef = Chef.new
   end
@@ -11,6 +12,10 @@ class ChefsController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def show
+    @chef = Chef.find(params[:id])
   end
   
   private
