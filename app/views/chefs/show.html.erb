@@ -7,4 +7,6 @@
 </div>
 
 <h4 align="center"><%= @chef.chefname %>'s recipes</h4>
-<%= render 'recipes/recipe', obj: @chef.recipes %>
+<%= will_paginate(@chef_recipes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+<%= render 'recipes/recipe', obj: @chef_recipes %>
+<%= will_paginate(@chef_recipes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>

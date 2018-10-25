@@ -69,3 +69,17 @@ body > .container {
     color: #fff;
   }
 }
+
+.listing {
+  list-style: none;
+  padding-left: 0;
+}
+.chef-title {
+  color: $darkcolor;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+ul.pagination {
+  margin: 0 auto;
+}

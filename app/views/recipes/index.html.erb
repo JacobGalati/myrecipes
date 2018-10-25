@@ -1,2 +1,7 @@
 <%= render 'shared/page_title', title: "Showing All Recipes" %>
+
+<%= will_paginate(@recipes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>  
+
 <%= render 'recipe', obj: @recipes %>
+
+<%= will_paginate(@recipes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>  
