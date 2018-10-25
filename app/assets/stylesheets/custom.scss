@@ -1,3 +1,4 @@
+$darkcolor: #343a40;
 #logo {
   float:left;
   font-size: 1.7em;
@@ -38,4 +39,26 @@
 body > .container {
   min-height: 70%;
   min-height: calc(100vh - 13.875rem) ;
+}
+
+.description {
+  margin-top: 0;
+}
+
+.card a {
+  color: $darkcolor;
+}
+
+.chef_info {
+  margin-top: 10px;
+}
+.row {
+  margin-bottom: 40px;
+}
+.card {
+  padding: 10px;
+}
+
+.dark-link a {
+  color: $darkcolor;
 }
