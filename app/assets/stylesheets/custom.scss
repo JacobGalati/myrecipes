@@ -62,3 +62,10 @@ body > .container {
 .dark-link a {
   color: $darkcolor;
 }
+
+.recipe-actions {
+  padding-top: 5px;
+  a, a:hover {
+    color: #fff;
+  }
+}
