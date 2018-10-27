@@ -83,3 +83,11 @@ body > .container {
 ul.pagination {
   margin: 0 auto;
 }
+
+.page-link {
+  color: $darkcolor;
+}
+.page-item.active .page-link {
+  background-color: $darkcolor;
+  border-color: $darkcolor;
+}

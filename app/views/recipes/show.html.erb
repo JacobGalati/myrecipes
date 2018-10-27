@@ -7,23 +7,27 @@
     <%= simple_format(@recipe.description) %>    
   </div>
   <hr />
-  <div class="ml-auto">
-    <p class="center">
-      <em>Created By:</em>
-    </p>
-    <p class="center">
-      <%= link_to gravatar_for(@recipe.chef), recipes_path %>
-    </p>
-    <p class="center">
-      <%= @recipe.chef.chefname.capitalize %>
-      <small><div class="ml-auto">Created: <%= time_ago_in_words(@recipe.created_at) %> Ago</div></small>
-    </p>
-  </div>
-  <div class="recipe-actions">
-    <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-xs btn-warning" %>
-    <%= link_to "Delete this recipe", recipe_path(@recipe), method: :delete,
-                                      data: { confirm: "Are you sure you want to delete this recipe?" },
-                                      class: "btn btn-xs btn-danger" %>
-    <%= link_to "Return to recipes listing", recipes_path, class: "btn btn-xs btn-dark" %>
+  <div class="d-flex">
+    <div class=" d-flex flex-column recipe-actions">
+      <% if logged_in? && current_chef == @recipe.chef %>
+        <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class: "btn btn-xs btn-warning mb-2" %>
+        <%= link_to "Delete this recipe", recipe_path(@recipe), method: :delete,
+                                          data: { confirm: "Are you sure you want to delete this recipe?" },
+                                          class: "btn btn-xs btn-danger mb-2" %>
+      <% end %>
+      <%= link_to "Return to recipes listing", recipes_path, class: "btn btn-xs btn-dark mb-2" %>
+    </div>  
+    <div class="ml-auto">
+      <p class="center">
+        <em>Created By:</em>
+      </p>
+      <p class="center">
+        <%= link_to gravatar_for(@recipe.chef), chef_path(@recipe.chef) %>
+      </p>
+      <p class="center">
+        <%= @recipe.chef.chefname.capitalize %>
+        <small><div class="ml-auto">Created: <%= time_ago_in_words(@recipe.created_at) %> Ago</div></small>
+      </p>
+    </div>
   </div>
 </div>
