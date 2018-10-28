@@ -5,8 +5,11 @@
     <%= gravatar_for @chef, size: 150 %>
   </div>
 </div>
-
-<h4 align="center"><%= @chef.chefname %>'s recipes</h4>
-<%= render 'shared/pagination', obj: @chef_recipes %>
-<%= render 'recipes/recipe', obj: @chef_recipes %>
-<%= render 'shared/pagination', obj: @chef_recipes %>
+<% if @chef.recipes.count != 0 %>
+  <h4 align="center"><%= @chef.chefname %>'s recipes</h4>
+  <%= render 'shared/pagination', obj: @chef_recipes %>
+  <%= render 'recipes/recipe', obj: @chef_recipes %>
+  <%= render 'shared/pagination', obj: @chef_recipes %>
+<% else %>
+  <h4 align="center">This chef has no recipes yet</h4>
+<% end %>

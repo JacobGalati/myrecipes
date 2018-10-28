@@ -7,6 +7,9 @@
     <%= simple_format(@recipe.description) %>    
   </div>
   <hr />
+  <% if @recipe.ingredients.any? %>
+    <p>Ingredients: <%= render @recipe.ingredients %></p>
+  <% end %>
   <div class="d-flex">
     <div class=" d-flex flex-column recipe-actions">
       <% if logged_in? && (current_chef == @recipe.chef || current_chef.admin?) %>
