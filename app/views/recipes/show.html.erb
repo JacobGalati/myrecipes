@@ -37,7 +37,7 @@
 
 <% if logged_in? %>
 
-  <%= form_for([@recipe, @comment], :html => {class: 'form', role: 'form'}) do |f| %>
+  <%= form_for([@recipe, @comment], remote: true, :html => {class: 'form', role: 'form'}) do |f| %>
     <div class="row">
       <div class="col-md-8 offset-md-2">
         
