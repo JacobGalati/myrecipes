@@ -16,6 +16,9 @@
         <%= link_to "All Recipes", recipes_path, class: "nav-link" %>
       </li>      
       <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to "Chefchat", chat_path, class: "nav-link" %>
+        </li>      
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Recipes
@@ -28,24 +31,24 @@
             <!--<a class="dropdown-item" href="#">Something else here</a>-->
           </div>
         </li>
-        <% end %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Ingredients
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "View Ingredients", ingredients_path, class: "dropdown-item" %>
-            <% Ingredient.all.each do |ingredient| %>
-              <%= link_to ingredient.name.capitalize, ingredient_path(ingredient), class: "dropdown-item" %>
-            <% end %>
-            <% if logged_in? && current_chef.admin? %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Create a new ingredient", new_ingredient_path, class: "dropdown-item" %>
-            <% end %>
-            <!--<div class="dropdown-divider"></div>-->
-            <!--<a class="dropdown-item" href="#">Something else here</a>-->
-          </div>
-        </li>
+      <% end %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ingredients
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "View Ingredients", ingredients_path, class: "dropdown-item" %>
+          <% Ingredient.all.each do |ingredient| %>
+            <%= link_to ingredient.name.capitalize, ingredient_path(ingredient), class: "dropdown-item" %>
+          <% end %>
+          <% if logged_in? && current_chef.admin? %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Create a new ingredient", new_ingredient_path, class: "dropdown-item" %>
+          <% end %>
+          <!--<div class="dropdown-divider"></div>-->
+          <!--<a class="dropdown-item" href="#">Something else here</a>-->
+        </div>
+      </li>
       <!--<li class="nav-item">-->
       <!--  <a class="nav-link disabled" href="#">Disabled</a>-->
       <!--</li>-->
