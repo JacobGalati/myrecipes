@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
-  before_action :require_user, except: [:index, :show]
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy, :like]
+  before_action :require_user, except: [:index, :show, :like]
   before_action :require_same_user, only: [:edit, :update, :destroy]
   
   def new
@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @recipe.comments.paginate(page: params[:page], per_page: 5)
+    @current_chef = current_chef
   end
   
   def create
@@ -46,6 +47,25 @@ class RecipesController < ApplicationController
     flash[:success] = "Recipe deleted successfully"
     redirect_to recipes_path
   end
+
+  def like
+    @like = Like.find_by(chef: current_chef, recipe: @recipe)
+    if @like 
+      if @like.update!(like: params[:like])
+        redirect_to recipe_path(@recipe)
+      else
+        flash.now[:danger] = "Error"
+      end
+    else 
+      @like = Like.new(like: params[:like], chef: current_chef, recipe: @recipe)      
+      if @like.save
+        redirect_to recipe_path(@recipe)
+      else
+        flash[:danger] = "You must be logged in to do that"
+        redirect_to recipe_path(@recipe)
+      end
+    end
+  end
   
   private
     def require_same_user
@@ -59,7 +79,7 @@ class RecipesController < ApplicationController
     end
     
     def recipe_params
-      params.require(:recipe).permit(:name, :description, ingredient_ids: [])
+      params.require(:recipe).permit(:name, :description, :image, ingredient_ids: [])
     end
 
 end

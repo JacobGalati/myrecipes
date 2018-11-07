@@ -31,7 +31,10 @@ gem 'will_paginate', '3.1.6'
 gem 'bootstrap-will_paginate'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -44,7 +47,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  #required for asser_template
+  #required for assert_template
   gem 'rails-controller-testing'
 end
 

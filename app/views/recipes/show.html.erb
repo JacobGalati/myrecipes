@@ -1,6 +1,6 @@
 <%= render 'shared/page_title', title: @recipe.name %>
 <div class="card col-md-8 offset-md-2 bg-light p-5">
-  
+  <%= image_tag(@recipe.image.url, alt: @recipe.name, class: "recipe-img mb-5") if @recipe.image? %>
   <h4 class="center description"><strong>Steps: </strong></h4>
   <hr />
   <div class="p-2">
@@ -19,6 +19,7 @@
                                           class: "btn btn-xs btn-danger mb-2" %>
       <% end %>
       <%= link_to "Return to recipes listing", recipes_path, class: "btn btn-xs btn-dark mb-2" %>
+      <%= render 'likes' %>
     </div>  
     <div class="ml-auto">
       <p class="center">

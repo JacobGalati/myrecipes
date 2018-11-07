@@ -6,5 +6,14 @@ module ApplicationHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt: chef.chefname, class: "rounded-circle")
   end
-  
+  def likeStatus
+  	current_like = Like.find_by(chef: @current_chef, recipe: @recipe[:id])
+  	if current_like
+  		if current_like.like == true
+  			'like'
+  		else
+  			'dislike'
+  		end
+  	end
+  end  
 end

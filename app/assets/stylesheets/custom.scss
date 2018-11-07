@@ -38,7 +38,7 @@ $darkcolor: #343a40;
 
 body > .container {
   min-height: 70%;
-  min-height: calc(100vh - 21.55rem);
+  min-height: calc(100vh - 17.19rem);
 }
 
 .description {
@@ -92,18 +92,6 @@ ul.pagination {
   border-color: $darkcolor;
 }
 
-// .center-block {
-//   float:none;
-// }
-
-// .chat-container {
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   top: 150px;
-//   width: 80%;
-// }
-
 .message-container {
   .form-control {
     float:left;
@@ -126,4 +114,26 @@ ul.pagination {
   height: 16em;
   position: relative;
   overflow: auto;
+}
+
+.like-bar {
+  a {
+    font-size: 1.25rem;
+    &.like:hover{
+      color: $primary !important;
+    }
+    &.dislike:hover{
+      color: $danger !important;
+    }
+    &.like .fas {
+      color: $primary !important;
+    }
+    &.dislike .fas {
+      color: $danger !important;
+    }
+  }
+}
+
+.recipe-img {
+  width: 100%;
 }
